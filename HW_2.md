@@ -227,74 +227,114 @@ for (let i = 0; i < resp.salary.length; i++) {
     console.log(resp.salary[i]);
 };
 ```
----------
+http://162.55.220.72:5005/user_info_2
+1. Вставить параметр salary из окружения в request
+2. Вставить параметр age из окружения в age
+3. Вставить параметр name из окружения в name
+4. Отправить запрос.
+5. Статус код 200
+```
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
 });
-
-var resp = pm.response.json(); //Спарсить response body в json.
-var req = request.data //Спарсить request.
-
-//Проверить, что json response имеет параметр start_qa_salary
+```
+6. Спарсить response body в json.
+```
+var resp = pm.response.json();
+```
+7. Спарсить request.
+```
+var req = request.data 
+```
+8. Проверить, что json response имеет параметр start_qa_salary
+```
 pm.test("Проверить, что json response имеет параметр start_qa_salary", function () {
     pm.expect(resp).to.have.property('start_qa_salary'); 
 });
-//Проверить, что json response имеет параметр qa_salary_after_6_months
+```
+9. Проверить, что json response имеет параметр qa_salary_after_6_months
+```
 pm.test("Проверить, что json response имеет параметр qa_salary_after_6_months", function () {
     pm.expect(resp).to.have.property('qa_salary_after_6_months'); 
 });
-//Проверить, что json response имеет параметр qa_salary_after_12_months
+```
+10. Проверить, что json response имеет параметр qa_salary_after_12_months
+```
 pm.test("Проверить, что json response имеет параметр qa_salary_after_12_months", function () {
     pm.expect(resp).to.have.property('qa_salary_after_12_months'); 
 });
-//Проверить, что json response имеет параметр qa_salary_after_1.5_year
+```
+11. Проверить, что json response имеет параметр qa_salary_after_1.5_year
+```
 pm.test("Проверить, что json response имеет параметр qa_salary_after_1.5_year", function () {
     pm.expect(resp).to.have.property('qa_salary_after_1.5_year'); 
 });
-//Проверить, что json response имеет параметр qa_salary_after_3.5_years
+```
+12. Проверить, что json response имеет параметр qa_salary_after_3.5_years
+```
 pm.test("Проверить, что json response имеет параметр qa_salary_after_3.5_years", function () {
     pm.expect(resp).to.have.property('qa_salary_after_3.5_years'); 
 });
-//Проверить, что json response имеет параметр person
+```
+13. Проверить, что json response имеет параметр person
+```
 pm.test("Проверить, что json response имеет параметр person", function () {
     pm.expect(resp).to.have.property('person'); 
 });
 console.log(+req.salary);
-//Проверить, что параметр start_qa_salary равен salary из request (salary забрать из request.)
+```
+14. Проверить, что параметр start_qa_salary равен salary из request (salary забрать из request.)
+```
 pm.test("Проверить, что параметр start_qa_salary равен salary из request (salary забрать из request.)", function () {
     pm.expect(resp.start_qa_salary).to.eql(Number(req.salary));
 });
-//Проверить, что параметр qa_salary_after_6_months равен salary*2 из request (salary забрать из request.)
+```
+15. Проверить, что параметр qa_salary_after_6_months равен salary*2 из request (salary забрать из request.)
+```
 pm.test("Проверить, что параметр qa_salary_after_6_months равен salary*2 из request (salary забрать из request.)", function () {
     pm.expect(resp.qa_salary_after_6_months).to.eql(req.salary*2);
 });
-//Проверить, что параметр qa_salary_after_12_months равен salary*2.7 из request (salary забрать из request.)
+```
+16. Проверить, что параметр qa_salary_after_12_months равен salary*2.7 из request (salary забрать из request.)
+```
 pm.test("Проверить, что параметр qa_salary_after_12_months равен salary*2.7 из request (salary забрать из request.)", function () {
     pm.expect(resp.qa_salary_after_12_months).to.eql(req.salary*2.7);
 });
-//Проверить, что параметр qa_salary_after_1.5_year равен salary*3.3 из request (salary забрать из request.)
+```
+17. Проверить, что параметр qa_salary_after_1.5_year равен salary*3.3 из request (salary забрать из request.)
+```
 pm.test("Проверить, что параметр qa_salary_after_1.5_year равен salary*3.3 из request (salary забрать из request.)", function () {
     pm.expect(resp['qa_salary_after_1.5_year']).to.eql(req.salary*3.3);
 });
-//Проверить, что параметр qa_salary_after_3.5_years равен salary*3.8 из request (salary забрать из request.)
+```
+18. Проверить, что параметр qa_salary_after_3.5_years равен salary*3.8 из request (salary забрать из request.)
+```
 pm.test("Проверить, что параметр qa_salary_after_3.5_years равен salary*3.8 из request (salary забрать из request.)", function () {
     pm.expect(resp['qa_salary_after_3.5_years']).to.eql(req.salary*3.8);
 });
-//Проверить, что в параметре person, 1-й элемент из u_name равен salary из request (salary забрать из request.)
+```
+19. Проверить, что в параметре person, 1-й элемент из u_name равен salary из request (salary забрать из request.)
+```
 pm.test("Проверить, что в параметре person, 1-й элемент из u_name равен salary из request (salary забрать из request.)", function () {
     pm.expect(resp.person.u_name[1]).to.eql(Number(req.salary));
 });
-//Проверить, что что параметр u_age равен age из request (age забрать из request.)
+```
+20. Проверить, что что параметр u_age равен age из request (age забрать из request.)
+```
 pm.test("Проверить, что что параметр u_age равен age из request (age забрать из request.)", function () {
     pm.expect(resp.person.u_age).to.eql(Number(req.age));
 });
-//Проверить, что параметр u_salary_5_years равен salary*4.2 из request (salary забрать из request.)
+```
+21. Проверить, что параметр u_salary_5_years равен salary*4.2 из request (salary забрать из request.)
+```
 pm.test("Проверить, что параметр u_salary_5_years равен salary*4.2 из request (salary забрать из request.)", function () {
     pm.expect(resp.person.u_salary_5_years).to.eql(req.salary*4.2);
 });
-//***Написать цикл который выведет в консоль по порядку элементы списка из параметра person.
+```
+22.***Написать цикл который выведет в консоль по порядку элементы списка из параметра person.
+```
 for (key in resp.person) {
     console.log(key, resp.person[key]);
 };
-
+```
 
