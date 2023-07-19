@@ -14,7 +14,7 @@
 
 ### HW_3
 
-[Задание с ответами](https://github.com/VysotskiySS/Postman/blob/main/HW_3.md)
+[Задача](https://github.com/VysotskiySS/Postman/blob/main/HW_3_task.txt)
 
 [Выгрузка](https://github.com/VysotskiySS/Postman/blob/main/Postman_HW_3.json)
 
