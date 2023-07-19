@@ -124,6 +124,9 @@ pm.test('u_salary_1_5_year = salary*4', function () {
 });
 ```
 4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user
+```
+pm.environment.set("salary", resp.person.u_salary_1_5_year);
+```
 ===================
 
 ### 3) http://162.55.220.72:5005/new_data
